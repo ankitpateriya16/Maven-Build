@@ -37,10 +37,10 @@ jobs:
     - name: scp ssh pipelines
       uses: cross-the-world/ssh-scp-ssh-pipelines@lasted
       with: 
-       host: ${{ secrests.HOST }}
-       user: ${{ secrests.USERNAME }}
-       pass: ${{ secrests.PASSWORD }}
-       post: ${{ secrests.PORT }}
+       host: ${{ secrects.HOST }}
+       user: ${{ secrects.USERNAME }}
+       pass: ${{ secrects.PASSWORD }}
+       port: ${{ secrects.PORT }}
        scp: |
          ./target/*.war => /tmp/
        last_ssh: |
@@ -51,5 +51,5 @@ jobs:
       with: 
         url: "http://http://54.82.96.174:8080"
         user: "admin"
-        token: ${{ secrests.JENKINS_TOKEN }}
+        token: ${{ secrects.JENKINS_TOKEN }}
         job: "TomcatDeployment"
