@@ -30,6 +30,19 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: scp ssh pipelines
+      uses: cross-the-world/ssh-scp-ssh-pipelines@lasted
+      with: 
+       host: ${{ secrets.HOST }}
+       user: ${{ secrets.USERNAME }}
+       pass: ${{ secrects.PASSWORD }}
+       port: ${{ secrets.PORT }}
+       scp: |
+         ./target/*.war => /tmp/
+       last_ssh: |
+        ls -lart /temp
+
+
     - name: Invoke Jenkins deployment Job
       uses: appleboy/jenkins-action@master
       with: 
