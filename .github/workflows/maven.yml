@@ -30,4 +30,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Invoke Jenkins deployment Job
+      uses: appleboy/jenkins-action@master
+      with: 
+        url: "http://http://54.82.96.174:8080"
+        user: "admin"
+        token: ${{ secrets.JENKINS_TOKEN }}
+        job: "TomcatDeployment"
+
+
 
