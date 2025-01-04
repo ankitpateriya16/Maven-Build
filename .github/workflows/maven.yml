@@ -35,7 +35,7 @@ jobs:
       with: 
        host: ${{ secrets.HOST }}
        user: ${{ secrets.USERNAME }}
-       pass: ${{ secrects.PASSWORD }}
+       pass: ${{ secrets.PASSWORD }}
        port: ${{ secrets.PORT }}
        scp: |
          ./target/*.war => /tmp/
